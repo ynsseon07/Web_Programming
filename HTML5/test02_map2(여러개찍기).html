@@ -13,11 +13,7 @@
 	height: 500px;
 	background-color: gray;
 }
-
 </style>
-
-<!-- https://developers.google.com/maps/documentation/javascript/overview
- 구글 API 문서 참고하기 -->
 </head>
 
 <body>
@@ -25,13 +21,12 @@
 <h3>Map</h3>
 <div id="map"></div>
 
-
 <script type="text/javascript">
 navigator.geolocation.getCurrentPosition(initmap);
 
 // data를 for of로 돌면서 function 안의 내용을 바꿔줌
 // mapImage는 한번만 선언, marker와 event.addListener를 for문 통해 선언
-let V;
+
 function initmap(position) {
 	let p = {
 		lat: position.coords.latitude,
