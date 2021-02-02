@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<title>Map</title>
+
+<style type="text/css">
+#map {
+	width: 700px;
+	height: 500px;
+	background-color: gray;
+}
+
+</style>
+
+<!-- https://developers.google.com/maps/documentation/javascript/overview
+ 구글 API 문서 참고하기 -->
+</head>
+
+<body>
+
+<h3>Map</h3>
+<div id="map"></div>
+
+
+<script type="text/javascript">
+navigator.geolocation.getCurrentPosition(initmap);
+
+function initmap(position) {
+	let p = {
+		lat: position.coords.latitude,
+		lng: position.coords.longitude
+	};
+	
+	let mapImage = new google.maps.Map(document.getElementById('map'), { zoom: 15, center: p });
+	
+	let marker = new google.maps.Marker({
+		position: p,
+		map: mapImage,
+		label: '내위치',
+		url: 'http://www.naver.com'
+	});
+	
+	let marker2 = new google.maps.Marker({
+		position: {lat: 37.56154517066801, lng: 126.9930503906448},
+		map:mapImage,
+		label: '서울시청',
+		url: 'https://www.seoul.go.kr'
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+		window.location.href = this.url;
+	});
+
+	marker2.addListener('click', () => {
+		window.open(marker2.url, '_blank');
+	});
+}
+
+
+</script>
+</body>
+</html>
