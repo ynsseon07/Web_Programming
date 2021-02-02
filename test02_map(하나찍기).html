@@ -1,3 +1,5 @@
+구글 API 문서 참고 https://developers.google.com/maps/documentation/javascript/overview
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +15,13 @@
 	height: 500px;
 	background-color: gray;
 }
-
 </style>
-
-<!-- https://developers.google.com/maps/documentation/javascript/overview
- 구글 API 문서 참고하기 -->
 </head>
 
 <body>
 
 <h3>Map</h3>
 <div id="map"></div>
-
 
 <script type="text/javascript">
 navigator.geolocation.getCurrentPosition(initmap);
@@ -59,8 +56,6 @@ function initmap(position) {
 		window.open(marker2.url, '_blank');
 	});
 }
-
-
 </script>
 </body>
 </html>
